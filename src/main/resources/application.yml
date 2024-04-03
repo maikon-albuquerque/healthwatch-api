@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: healthwatch-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/healthwatch
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa: 
+    database: POSTGRESQL
+    hibernate: 
+      ddl-auto: update
+    show-sql: true
+

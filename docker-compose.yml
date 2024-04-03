@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: healthwatch
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: speakery
+      PGADMIN_DEFAULT_EMAIL: info@hospitalsaocarlos.com.br
+    ports:
+      - '15432:80'
+    depends_on: 
+      - db
